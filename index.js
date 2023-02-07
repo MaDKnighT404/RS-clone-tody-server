@@ -1,17 +1,17 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import {registerValidation} from './validations/auth.js';
-
+import dotenv from 'dotenv'
 import checkAuth from './utils/checkAuth.js'
 import * as UserController from './controllers/UserController.js'
 
-
+dotenv.config();
 const PORT = process.env.PORT || 5000;
 mongoose.set("strictQuery", false);
 
 mongoose
   .connect(
-    'mongodb://mongo:5SttEwBvlE26BsRArKSu@containers-us-west-178.railway.app:7775',
+    `mongodb+srv://${process.env.DB_LOGIN}:${process.env.DB_PASS}@cluster0.xy2m9ow.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
   )
   .then(() => console.log('DB ok'))
   .catch(() => console.log('DB error', err));
