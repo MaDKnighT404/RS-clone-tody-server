@@ -11,7 +11,7 @@ mongoose.set("strictQuery", false);
 
 mongoose
   .connect(
-    'mongodb+srv://MadKnight:SantaFe2020@cluster0.xy2m9ow.mongodb.net/blog?retryWrites=true&w=majority'
+    'mongodb://mongo:5SttEwBvlE26BsRArKSu@containers-us-west-178.railway.app:7775',
   )
   .then(() => console.log('DB ok'))
   .catch(() => console.log('DB error', err));
