@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import {registerValidation} from './validations/auth.js';
 
 import checkAuth from './utils/checkAuth.js'
-import * as UserController from './controllers/userController.js'
+import * as UserController from './controllers/UserController.js'
 
 
 const PORT = process.env.port || 5000;
