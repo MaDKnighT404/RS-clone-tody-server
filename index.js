@@ -1,10 +1,16 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import multer from 'multer';
+
 import dotenv from 'dotenv';
 import cors from 'cors';
-import {registerValidation} from './validations/auth.js';
-import checkAuth from './utils/checkAuth.js';
-import * as UserController from './controllers/UserController.js';
+import {
+  registerValidation,
+  loginValidation,
+  todoCreateValidation,
+} from './validations.js';
+import {checkAuth, handleValidationErrors} from './utils/index.js';
+import {UserController, TodoController} from './controllers/index.js';
 
 dotenv.config();
 
@@ -20,13 +26,58 @@ mongoose
   .catch(() => console.log('DB error', err));
 
 const app = express();
+
+const storage = multer.diskStorage({
+  destination: (_, __, cb) => {
+    cb(null, 'uploads');
+  },
+  filename: (_, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
+const upload = multer({storage});
+app.use('/uploads', express.static('uploads'));
 app.use(express.json());
 app.use(cors());
-app.post('/auth/login', UserController.login);
 
-app.post('/auth/register', registerValidation, UserController.register);
+app.post(
+  '/auth/login',
+  loginValidation,
+  handleValidationErrors,
+  UserController.login
+);
+app.post(
+  '/auth/register',
+  registerValidation,
+  handleValidationErrors,
+  UserController.register
+);
 
 app.get('/auth/me', checkAuth, UserController.getMe);
+
+app.post('/upload', checkAuth, upload.single('image'), (req, res) => {
+  res.json({
+    url: `/uploads/${req.file.originalname}`,
+  });
+});
+
+app.get('/todos', TodoController.getAll);
+app.get('/todos/:id', TodoController.getOne);
+app.post(
+  '/todos',
+  checkAuth,
+  todoCreateValidation,
+  handleValidationErrors,
+  TodoController.create
+);
+app.delete('/todos/:id', checkAuth, TodoController.remove);
+app.patch(
+  '/todos/:id',
+  checkAuth,
+  todoCreateValidation,
+  handleValidationErrors,
+  TodoController.update
+);
 
 app.listen(PORT, (err) => {
   if (err) {
