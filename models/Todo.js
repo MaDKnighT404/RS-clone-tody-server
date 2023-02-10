@@ -5,11 +5,10 @@ const TodoSchema = new mongoose.Schema(
     title: {
       type: String,
       required: true,
+      unique: true,
     },
     note: {
       type: String,
-      required: true,
-      unique: true,
     },
     isComplete: {
       type: Boolean,
@@ -17,7 +16,7 @@ const TodoSchema = new mongoose.Schema(
     },
     deadlineId: {
       type: String,
-      default: '',
+      default: 'today',
     },
     deadlineAt: {
       type: Number,
