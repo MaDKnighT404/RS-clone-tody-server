@@ -79,7 +79,7 @@ export const create = async (req, res) => {
   try {
     const doc = new TodoModel({
       title: req.body.title,
-      text: req.body.text,
+      note: req.body.note,
       user: req.userId,
     });
 
@@ -102,7 +102,7 @@ export const update = async(req, res) => {
       _id: todoId,
     }, {
       title: req.body.title,
-      text: req.body.text,
+      note: req.body.note,
       user: req.userId,
     })
 
