@@ -14,6 +14,11 @@ export const loginValidation = [
 
 export const todoCreateValidation = [
   body('title', 'Enter the title of the article').isLength({min: 3}).isString(),
-  body('text', 'Enter the text of the article').isLength({min: 3}).isString(),
+  body('note', 'Enter the note of the article').isLength({min: 3}).isString(),
+  body('deadlineId', 'Enter the deadline id').isLength({min: 1}).isString(),
+  body('deadlineAt', 'Enter the deadline number').isNumeric(),
+  body('pomodorosNumber', 'Enter the number of pomodoros').isNumeric(),
+  body('completedPomodors', 'Enter the number of completed pomodoros').isNumeric(),
+  body('pomodoroTime', 'Enter the time of pomodoro').isNumeric(),
   //Дописать проверки тут и в модели
 ];

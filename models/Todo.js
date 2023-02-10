@@ -1,13 +1,12 @@
 import mongoose from 'mongoose';
 
 const TodoSchema = new mongoose.Schema(
-  // дополнить
   {
     title: {
       type: String,
       required: true,
     },
-    text: {
+    note: {
       type: String,
       required: true,
       unique: true,
@@ -15,6 +14,26 @@ const TodoSchema = new mongoose.Schema(
     isComplete: {
       type: Boolean,
       default: false,
+    },
+    deadlineId: {
+      type: String,
+      default: '',
+    },
+    deadlineAt: {
+      type: Number,
+      default: 0,
+    },
+    pomodorosNumber: {
+      type: Number,
+      default: 0,
+    },
+    pomodoroTime: {
+      type: Number,
+      default: 0,
+    },
+    completedPomodors: {
+      type: Number,
+      default: 0,
     },
     user: {
       type: mongoose.Schema.Types.ObjectId,
