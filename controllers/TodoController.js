@@ -7,7 +7,7 @@ export const getAll = async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).json({
-      message: 'Error when getting all todos',
+      msg: 'Error when getting all todos',
     });
   }
 };
@@ -23,13 +23,13 @@ export const getOne = async (req, res) => {
         if (err) {
           console.log(err);
           return res.status(500).json({
-            message: 'Error when get one todo',
+            msg: 'Error when get one todo',
           });
         }
 
         if (!doc) {
           return res.status(404).json({
-            message: 'Error todo not found',
+            msg: 'Error todo not found',
           });
         }
 
@@ -39,7 +39,7 @@ export const getOne = async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).json({
-      message: 'Error when getting a todo',
+      msg: 'Error when getting a todo',
     });
   }
 };
@@ -53,13 +53,13 @@ export const remove = async (req, res) => {
       if(err) {
         console.log(err);
         res.status(500).json({
-          message: 'Error when deleting todo',
+          msg: 'Error when deleting todo',
         });
       }
 
       if(!doc) {
         return res.status(404).json({
-          message: 'Error todo not found',
+          msg: 'Error todo not found',
         });
       }
 
@@ -70,7 +70,7 @@ export const remove = async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).json({
-      message: 'Error when deleting todo',
+      msg: 'Error when deleting todo',
     });
   }
 };
@@ -88,7 +88,7 @@ export const create = async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).json({
-      message: 'Error when create todo',
+      msg: 'Error when create todo',
     });
   }
 };
@@ -110,7 +110,7 @@ export const update = async(req, res) => {
   } catch (error) {
     console.log(err);
     res.status(500).json({
-      message: 'Error when update todo',
+      msg: 'Error when update todo',
     });
   }
 }

@@ -10,12 +10,12 @@ export default (req, res, next) => {
       next();
     } catch (err) {
       return res.status(403).json({
-        message: 'Access is denied',
+        msg: 'Access is denied',
       });
     }
   } else {
     return res.status(403).json({
-      message: 'Access is denied',
+      msg: 'Access is denied',
     });
   }
 

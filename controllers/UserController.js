@@ -28,7 +28,7 @@ export const register = async (req, res) => {
   } catch(err) {
     console.log(err)
     res.status(500).json({
-      message: 'Error when registred'
+      msg: 'Error when registred'
     })
   }
 }
@@ -40,7 +40,7 @@ export const login = async (req, res) => {
 
     if (!user) {
       return res.status(404).json([{
-        message: 'User not found',
+        msg: 'User not found',
       }])
     }
 
@@ -48,7 +48,7 @@ export const login = async (req, res) => {
 
     if(!isValidPass) {
       return res.status(400).json ({
-        message: 'Incorrect login or password'
+        msg: 'Incorrect login or password'
       })
     }
 
@@ -63,7 +63,7 @@ export const login = async (req, res) => {
   } catch(err) {
     console.log(err)
     res.status(500).json({
-      message: 'Error when login'
+      msg: 'Error when login'
     })
   }
 }
@@ -74,7 +74,7 @@ export const getMe = async (req, res) => {
     
     if(!user) {
       return res.status(404).json({
-        message: 'User not found'
+        msg: 'User not found'
       })
     }
 
@@ -84,7 +84,7 @@ export const getMe = async (req, res) => {
   } catch (err) {
     console.log(err)
     res.status(500).json({
-      message: 'Access is denied'
+      msg: 'Access is denied'
     })
   }
 }
