@@ -27,9 +27,9 @@ export const register = async (req, res) => {
 
   } catch(err) {
     console.log(err)
-    res.status(500).json({
-      msg: 'Error when registred'
-    })
+    res.status(500).json([{
+      msg: 'User is already registred'
+    }])
   }
 }
 
