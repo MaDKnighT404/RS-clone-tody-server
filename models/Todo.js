@@ -7,30 +7,30 @@ const TodoSchema = new mongoose.Schema(
       required: true,
       unique: true
     },
-    // isComplete: {
-    //   type: Boolean,
-    //   default: false,
-    // },
-    // deadlineId: {
-    //   type: String,
-    //   default: 'today',
-    // },
-    // deadlineAt: {
-    //   type: Number,
-    //   default: 0,
-    // },
-    // pomodorosNumber: {
-    //   type: Number,
-    //   default: 0,
-    // },
-    // pomodoroTime: {
-    //   type: Number,
-    //   default: 0,
-    // },
-    // completedPomodors: {
-    //   type: Number,
-    //   default: 0,
-    // },
+    isComplete: {
+      type: Boolean,
+      default: false,
+    },
+    deadlineId: {
+      type: String,
+      default: 'today',
+    },
+    deadlineAt: {
+      type: Number,
+      default: 0,
+    },
+    pomodorosNumber: {
+      type: Number,
+      default: 0,
+    },
+    pomodoroTime: {
+      type: Number,
+      default: 0,
+    },
+    completedPomodors: {
+      type: Number,
+      default: 0,
+    },
     user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',

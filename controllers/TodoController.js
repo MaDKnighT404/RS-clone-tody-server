@@ -80,6 +80,12 @@ export const create = async (req, res) => {
     const doc = new TodoModel({
       title: req.body.title,
       user: req.userId,
+      isComplete: req.body.isComplete,
+      deadlineId: req.body.deadlineId,
+      deadlineAt: req.body.deadlineAt,
+      pomodorosNumber: req.body.pomodorosNumber,
+      pomodoroTime: req.body.pomodoroTime,
+      completedPomodors: req.body.completedPomodors,
     });
 
     const todo = await doc.save();
