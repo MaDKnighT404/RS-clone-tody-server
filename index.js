@@ -19,7 +19,7 @@ mongoose.set('strictQuery', false);
 
 mongoose
   .connect(
-    `mongodb+srv://${process.env.DB_LOGIN}:${process.env.DB_PASS}@cluster0.xy2m9ow.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
+    `mongodb+srv://${process.env.DB_LOGIN}:${process.env.DB_PASS}@cluster0.9prktza.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
     {useNewUrlParser: true, useUnifiedTopology: true}
   )
   .then(() => console.log('DB ok'))
