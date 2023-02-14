@@ -12,6 +12,21 @@ export const getAll = async (req, res) => {
   }
 };
 
+export const getAllForUser = async (req, res) => {
+  try {
+    const todos = await TodoModel.find().populate('user').exec();
+
+    const newTodos = todos.filter(todo => todo.user.email === req.body.email)
+
+    res.json(newTodos);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      msg: 'Error when getting all todos',
+    });
+  }
+};
+
 export const getOne = async (req, res) => {
   try {
     const todoId = req.params.id;
