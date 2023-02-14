@@ -121,7 +121,7 @@ export const update = async(req, res) => {
     await TodoModel.updateOne({
       _id: todoId,
     }, {
-      title: req.body.title,
+      isComplete: req.body.isComplete,
       user: req.userId,
     })
 
