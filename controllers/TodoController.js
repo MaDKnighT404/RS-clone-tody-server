@@ -95,7 +95,7 @@ export const create = async (req, res) => {
     const doc = new TodoModel({
       title: req.body.title,
       user: req.userId,
-      isComplete: req.body.isComplete,
+      isCompleted: req.body.isCompleted,
       deadlineId: req.body.deadlineId,
       deadlineAt: req.body.deadlineAt,
       pomodorosNumber: req.body.pomodorosNumber,
@@ -121,7 +121,7 @@ export const update = async(req, res) => {
     await TodoModel.updateOne({
       _id: todoId,
     }, {
-      isComplete: req.body.isComplete,
+      isCompleted: req.body.isCompleted,
       user: req.userId,
     })
 
