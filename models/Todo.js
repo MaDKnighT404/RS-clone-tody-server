@@ -9,10 +9,6 @@ const TodoSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  deadlineId: {
-    type: String,
-    default: 'today',
-  },
   createdAt: {
     type: Number,
     default: Date.now(),

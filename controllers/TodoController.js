@@ -96,7 +96,6 @@ export const create = async (req, res) => {
       title: req.body.title,
       user: req.userId,
       isCompleted: req.body.isCompleted,
-      deadlineId: req.body.deadlineId,
       deadlineAt: req.body.deadlineAt,
       pomodorosNumber: req.body.pomodorosNumber,
       pomodoroTime: req.body.pomodoroTime,
