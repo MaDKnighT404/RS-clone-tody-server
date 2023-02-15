@@ -120,7 +120,12 @@ export const update = async(req, res) => {
     await TodoModel.updateOne({
       _id: todoId,
     }, {
+      title: req.body.title,
       isCompleted: req.body.isCompleted,
+      deadlineAt: req.body.deadlineAt,
+      pomodorosNumber: req.body.pomodorosNumber,
+      pomodoroTime: req.body.pomodoroTime,
+      completedPomodors: req.body.completedPomodors,
       user: req.userId,
     })
 
