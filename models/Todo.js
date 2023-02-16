@@ -6,7 +6,7 @@ const TodoSchema = new mongoose.Schema({
     default: ''
   },
   note: {
-    type: string,
+    type: String,
     default: '',
   },
   isCompleted: {
