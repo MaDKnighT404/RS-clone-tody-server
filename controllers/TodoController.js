@@ -95,6 +95,7 @@ export const create = async (req, res) => {
     const doc = new TodoModel({
       title: req.body.title,
       user: req.userId,
+      note: req.body.note,
       isCompleted: req.body.isCompleted,
       deadlineAt: req.body.deadlineAt,
       pomodorosNumber: req.body.pomodorosNumber,
