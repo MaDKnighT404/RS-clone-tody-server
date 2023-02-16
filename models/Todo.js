@@ -5,6 +5,10 @@ const TodoSchema = new mongoose.Schema({
     type: String,
     default: ''
   },
+  note: {
+    type: string,
+    default: '',
+  },
   isCompleted: {
     type: Boolean,
     default: false,

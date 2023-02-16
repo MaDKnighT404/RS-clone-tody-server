@@ -123,6 +123,7 @@ export const update = async(req, res) => {
       title: req.body.title,
       isCompleted: req.body.isCompleted,
       deadlineAt: req.body.deadlineAt,
+      note: req.body.note,
       pomodorosNumber: req.body.pomodorosNumber,
       pomodoroTime: req.body.pomodoroTime,
       completedPomodors: req.body.completedPomodors,
