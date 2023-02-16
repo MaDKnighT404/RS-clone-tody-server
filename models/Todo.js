@@ -23,7 +23,7 @@ const TodoSchema = new mongoose.Schema({
   },
   deadlineDate: {
     type: String,
-    default: new Date().toISOString().split('T')[0],
+    default: '',
   },
   pomodorosNumber: {
     type: Number,
