@@ -18,8 +18,8 @@ const TodoSchema = new mongoose.Schema({
     default: Date.now(),
   },
   deadlineAt: {
-    type: String,
-    default: '',
+    type: Number,
+    default: 0,
   },
   pomodorosNumber: {
     type: Number,
