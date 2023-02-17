@@ -65,6 +65,8 @@ app.get('/todos', TodoController.getAll);
 
 app.post('/todos/user', TodoController.getAllForUser);
 
+app.get('/todos/:userId', TodoController.getAllTodosForUser);
+
 app.get('/todos/:id', TodoController.getOne);
 app.post(
   '/todos',
