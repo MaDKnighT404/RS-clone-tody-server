@@ -15,9 +15,7 @@ export const getAll = async (req, res) => {
 export const getAllForUser = async (req, res) => {
   try {
     const todos = await TodoModel.find().populate('user').exec();
-
-    const newTodos = todos.filter(todo => todo.user.email === req.body.email)
-
+    const newTodos = todos.filter(todo => `new ObjectId(${todo.user._id})` === `new ObjectId(${req.body._id})`)
     res.json(newTodos);
   } catch (err) {
     console.log(err);
