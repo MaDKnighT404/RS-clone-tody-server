@@ -12,6 +12,34 @@ export const getAll = async (req, res) => {
   }
 };
 
+export const getAllInCompletedTodos = async (req, res) => {
+  try {
+    const todos = await TodoModel.find().populate('user').exec();
+    const newTodos = todos.filter(todo => `new ObjectId(${todo.user.id})` === `new ObjectId(${req.params.userId})`)
+    const inCompetedTodos = newTodos.filter(todo => !todo.isCompleted)
+    res.json(inCompetedTodos);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      msg: 'Error when getting all todos',
+    });
+  }
+};
+
+export const getAllCompletedTodos = async (req, res) => {
+  try {
+    const todos = await TodoModel.find().populate('user').exec();
+    const newTodos = todos.filter(todo => `new ObjectId(${todo.user.id})` === `new ObjectId(${req.params.userId})`)
+    const inCompetedTodos = newTodos.filter(todo => todo.isCompleted)
+    res.json(inCompetedTodos);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      msg: 'Error when getting all todos',
+    });
+  }
+};
+
 export const getAllTodosForUser = async (req, res) => {
   try {
     const todos = await TodoModel.find().populate('user').exec();

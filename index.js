@@ -63,6 +63,9 @@ app.post('/upload', checkAuth, upload.single('image'), (req, res) => {
 
 app.get('/todos', TodoController.getAll);
 
+app.get('/todos/incompleted/:userId', TodoController.getAllInCompletedTodos);
+app.get('/todos/completed/:userId', TodoController.getAllCompletedTodos);
+
 app.get('/todos/:userId', TodoController.getAllTodosForUser);
 
 app.get('/todos/:id', TodoController.getOne);
