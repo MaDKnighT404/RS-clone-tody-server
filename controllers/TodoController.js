@@ -161,6 +161,7 @@ export const update = async(req, res) => {
       pomodoroTime: req.body.pomodoroTime,
       completedPomodors: req.body.completedPomodors,
       user: req.userId,
+      order: req.body.order
     })
 
     res.json({
