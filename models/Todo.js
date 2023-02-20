@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
+import Inc from "mongoose-sequence";
+const AutoIncrement = Inc(mongoose); 
 
-const TodoSchema = new mongoose.Schema({
+const TodoSchema = mongoose.Schema({
   title: {
     type: String,
     default: ''
@@ -44,4 +46,5 @@ const TodoSchema = new mongoose.Schema({
   },
 });
 
+TodoSchema.plugin(AutoIncrement, {inc_field: 'order'});
 export const TodoModel = mongoose.model('Todo', TodoSchema);

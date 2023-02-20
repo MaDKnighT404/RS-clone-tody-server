@@ -1,5 +1,6 @@
 import {TodoModel} from '../models/Todo.js';
 
+
 export const getAll = async (req, res) => {
   try {
     const todos = await TodoModel.find().populate('user').exec();
@@ -116,6 +117,7 @@ export const remove = async (req, res) => {
     });
   }
 };
+
 
 export const create = async (req, res) => {
   try {
