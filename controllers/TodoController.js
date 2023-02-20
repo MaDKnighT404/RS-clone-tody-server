@@ -45,6 +45,7 @@ export const getAllTodosForUser = async (req, res) => {
   try {
     const todos = await TodoModel.find().populate('user').exec();
     const newTodos = todos.filter(todo => `new ObjectId(${todo.user.id})` === `new ObjectId(${req.params.userId})`)
+    newTodos.sort((a,b) => a.order - b.order) 
     res.json(newTodos);
   } catch (err) {
     console.log(err);
