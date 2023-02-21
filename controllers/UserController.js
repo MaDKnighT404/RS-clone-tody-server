@@ -10,7 +10,7 @@ export const register = async (req, res) => {
     const hash = await bcrypt.hash(password, salt);
   
     const doc = new UserModel({
-      email: req.body.email,
+      email: req.body.email.toLowerCase(),
       fullName: req.body.fullName,
       avatarUrl: req.body.avatarUrl,
       passwordHash: hash,
@@ -36,7 +36,7 @@ export const register = async (req, res) => {
 
 export const login = async (req, res) => {
   try {
-    const user = await UserModel.findOne({email: req.body.email});
+    const user = await UserModel.findOne({email: req.body.email.toLowerCase()});
 
     if (!user) {
       return res.status(404).json([{
